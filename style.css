@@ -9,6 +9,7 @@ body {
   background-image: url(./img/bg\ jpag.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .quote-box {
@@ -38,7 +39,7 @@ body {
   margin-bottom: 20px;
 }
 
-button {
+.quote-button {
   padding: 10px 20px;
   background-color: #0070f3;
   border: none;
@@ -47,6 +48,30 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.quote-button:hover {
+  background-color: #0059c1;
+}
+
+.quote-list {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.431); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  border-radius: 8px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}
+
+.btn-list {
+  padding: 10px 20px;
+  background-color: #0070f3;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-list:hover {
   background-color: #0059c1;
 }

@@ -6,26 +6,40 @@ const quotes = [
   { text: "In order to be irreplaceable, one must always be different.", author: "Coco Chanel" }
 ];
 
-
 const quoteEl = document.getElementById('quote');
 const authorEl = document.getElementById('author');
 const newQuoteBtn = document.getElementById('newQuoteBtn');
+const toggleQuotesBtn = document.getElementById('toggleQuotesBtn');
+const allQuotesEl = document.getElementById('allQuotes');
 
-// Arrow function to get a random quote
+// Show one random quote
 const showRandomQuote = () => {
   const index = Math.floor(Math.random() * quotes.length);
   const { text, author } = quotes[index]; 
-
   quoteEl.textContent = `"${text}"`;
   authorEl.textContent = `— ${author}`;
 };
 
-// Arrow function to add event listener
-const initQuoteApp = () => {
-  newQuoteBtn.addEventListener('click', showRandomQuote);
-  showRandomQuote(); 
+// Render all quotes using forEach
+const renderAllQuotes = () => {
+  allQuotesEl.innerHTML = ''; // Clear previous
+  quotes.forEach((quote, i) => {
+    const quoteDiv = document.createElement('div');
+    quoteDiv.className = 'quote-item';
+    quoteDiv.innerHTML = `<p>"${quote.text}"</p><p>— ${quote.author}</p>`;
+    allQuotesEl.appendChild(quoteDiv);
+  });
 };
 
-initQuoteApp();
+// Toggle visibility of all quotes
+let isVisible = false;
+toggleQuotesBtn.addEventListener('click', () => {
+  isVisible = !isVisible;
+  allQuotesEl.style.display = isVisible ? 'block' : 'none';
+  toggleQuotesBtn.textContent = isVisible ? 'Hide all ▲' : 'See all ◇';
+  if (isVisible) renderAllQuotes();
+});
 
-
+// Initialize
+newQuoteBtn.addEventListener('click', showRandomQuote);
+showRandomQuote();
